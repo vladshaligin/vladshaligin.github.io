@@ -1,0 +1,36 @@
+<body>
+  
+</body>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+  import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-messaging.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyCJBqSUGfKcUUtS-nXbFrwxFiE5GN0P4Y4",
+    authDomain: "pizza-delivery-c88f5.firebaseapp.com",
+    projectId: "pizza-delivery-c88f5",
+    storageBucket: "pizza-delivery-c88f5.appspot.com",
+    messagingSenderId: "279285760841",
+    appId: "1:279285760841:web:fa48e59ac6b3e683afd098",
+    measurementId: "G-8XLWXRGYT8"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  const messaging = getMessaging(app);
+  getToken(messaging, {vapidKey: "BDL4tgkCEYDblsrty5JAQ9r2gjw5h9yDB4hF-MBkTyWr5xtOy0vdB5DLuzKG-WvVSDxCtVlhWzsmmUwqtIA0aCE"}).then((currentToken) => {
+  if (currentToken) {
+    console.log('here is currentToken')
+    console.log(currentToken)
+  } else {
+    console.log('No registration token available. Request permission to generate one.');
+  }
+}).catch((err) => {
+  console.log('An error occurred while retrieving token. ', err);
+});
+
+const options = {method: 'GET'};
+
+
+</script>
