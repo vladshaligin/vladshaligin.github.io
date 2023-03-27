@@ -37,7 +37,8 @@ async def accept_delivery(request: web.Request):
     for delivery in deliveries:
         if delivery["id"] == accept_id:
             deliveries.remove(delivery)
-            return web.json_response({"result":"ok"})
+    
+    return web.json_response({"result":"ok"})
 
 app = web.Application()
 app.add_routes(routes)
