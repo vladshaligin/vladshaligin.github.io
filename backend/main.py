@@ -35,7 +35,7 @@ async def get_deliveries(request: web.Request):
 async def accept_delivery(request: web.Request):
     accept_id = request.rel_url.query['id']
     for delivery in deliveries:
-        if delivery["id"] == accept_id:
+        if delivery["id"] == int(accept_id):
             deliveries.remove(delivery)
     
     return web.json_response({"result":"ok"})
