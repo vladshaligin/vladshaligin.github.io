@@ -31,7 +31,7 @@ routes = web.RouteTableDef()
 async def get_deliveries(request: web.Request):
     return web.json_response({"result" : deliveries})
 
-@routes.post('/accept_delivery')
+@routes.get('/accept_delivery')
 async def accept_delivery(request: web.Request):
     accept_id = request.rel_url.query['id']
     for delivery in deliveries:
