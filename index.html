@@ -52,7 +52,7 @@ fetch('https://vladshaligingithubio-production.up.railway.app/get_deliveries', o
 function acceptDelivery(id) {
   const options = {method: 'GET'};
 
-  fetch('https://vladshaligingithubio-production.up.railway.app/accept_delivery', options)
+  fetch('https://vladshaligingithubio-production.up.railway.app/accept_delivery?id=' + id, options)
     .then(response => response.json())
     .then(response => console.log(response))
     .catch(err => console.error(err));
