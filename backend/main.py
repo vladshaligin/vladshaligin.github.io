@@ -33,10 +33,14 @@ async def get_deliveries(request: web.Request):
 
 @routes.get('/accept_delivery')
 async def accept_delivery(request: web.Request):
+    print("got accept")
     accept_id = request.rel_url.query['id']
     for delivery in deliveries:
         if delivery["id"] == int(accept_id):
+            print("id matched")
             deliveries.remove(delivery)
+
+    print(deliveries)
     
     return web.json_response({"result":"ok"})
 
