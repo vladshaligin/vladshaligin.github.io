@@ -32,5 +32,19 @@
 
 const options = {method: 'GET'};
 
-
+fetch('http://vladshaligingithubio-production.up.railway.app/get_deliveries', options)
+  .then(response => response.json())
+  .then(response => {
+    let result = response["result"]
+    console.log(result)
+    for(var i = 0; i < result.length; i++) {
+      const div = document.createElement("div")
+      div.innerHTML = "Номер заказа: " + result[i]["id"] + "Пицца: " + result[i]["pizza"] + "<br>" + "Адрес: " + result[i]["street"] + "<br>"
+      document.body.appendChild(div)
+      const but = document.createElement("button")
+      but.innerHTML = "Принять заказ"
+      div.appendChild(but)
+      }
+  })
+  .catch(err => console.error(err));
 </script>
